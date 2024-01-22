@@ -12,7 +12,7 @@ const UserProfile = () => {
 
   return (
     <Popover>
-      <PopoverTrigger asChild>
+      <PopoverTrigger asChild className="w-[260px]">
         <div className="min-h-[44px] w-full cursor-pointer flex gap-2 items-center p-2 hover:bg-[#202123] rounded-md">
           <div className="w-8 h-8 rounded-full flex justify-center items-center">
             <Image
@@ -28,7 +28,10 @@ const UserProfile = () => {
           </span>
         </div>
       </PopoverTrigger>
-      <PopoverContent className="w-full rounded-md border p-1.5" align="start">
+      <PopoverContent
+        className="rounded-md border w-[260px] p-1.5"
+        align="start"
+      >
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem
           recusandae reiciendis unde tempora! In, magni minus! Neque pariatur

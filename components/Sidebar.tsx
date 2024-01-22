@@ -1,18 +1,26 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { EditIcon, LucideSparkles, Sparkle, Star } from "lucide-react";
+import {
+  Archive,
+  EditIcon,
+  LucideSparkles,
+  MoreHorizontal,
+  Sparkle,
+  Star,
+} from "lucide-react";
 import Link from "next/link";
 
 import React from "react";
 import UserProfile from "./UserProfile";
+import Example from "./Example";
 
 const Sidebar = () => {
   return (
     <aside className="bg-black text-[#DFDBCE] hidden overflow-hidden md:block h-screen w-[260px]">
       <div className="flex flex-col h-full pb-4">
-        <ScrollArea className="px-3 flex-1 relative pt-3">
+        <ScrollArea className="px-2 flex-1 relative pt-3">
           <div></div>
           <Link href={"#"} className="sticky top-0">
-            <div className="bg-black hover:bg-[#202123] flex justify-between items-center p-2 rounded-md">
+            <div className="bg-black hover:bg-[#202123] px-3 py-2 flex justify-between items-center p-1 rounded-lg">
               <div className="flex items-center gap-2">
                 <div className="w-7 h-7 ">
                   <div className="bg-white text-black h-full w-full rounded-full flex justify-center items-center">
@@ -41,8 +49,71 @@ const Sidebar = () => {
               </div>
             </div>
           </Link>
+
+          <div
+            className="relative mt-5"
+            style={{
+              height: "auto",
+              opacity: "1",
+              transform: "none",
+              transformOrigin: "50% 50% 0px",
+            }}
+          >
+            <div
+              style={{
+                transform: "none",
+                transformOrigin: "50% 50% 0px",
+                opacity: "1",
+              }}
+            >
+              <h3 className="h-9 pb-2 pt-3 px-2 text-xs font-medium text-ellipsis overflow-hidden break-all bg-black">
+                Yesterday
+              </h3>
+            </div>
+            <ol>
+              <li
+                className="relative"
+                data-projection-id="54"
+                style={{
+                  opacity: "1",
+                  height: "auto",
+                  transform: "none",
+                  transformOrigin: "50% 50% 0px",
+                }}
+              >
+                <div className="group relative rounded-lg active:opacity-90 hover:bg-[#202123]">
+                  <a
+                    href="/c/78159963-9562-4a8b-9d2d-5056263f61d9"
+                    className="flex items-center gap-2 p-2"
+                  >
+                    <div className="relative grow overflow-hidden w-full whitespace-nowrap">
+                      Express API with TypeScript
+                      <div className="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"></div>
+                    </div>
+                  </a>
+                  <div className="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
+                    <button
+                      className="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
+                      type="button"
+                      id="radix-:r67:"
+                      aria-haspopup="menu"
+                      aria-expanded="false"
+                      data-state="closed"
+                    >
+                      <span className="" data-state="closed">
+                        <MoreHorizontal />
+                      </span>
+                    </button>
+                    <button className="flex items-center justify-center transition ">
+                      <Archive size={18} />
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
         </ScrollArea>
-        <div className="px-4 flex flex-col gap-3 ">
+        <div className="px-3 flex flex-col gap-3 ">
           <Link href={"#"}>
             <div className="min-h-[44px] flex gap-2 items-center p-2 hover:bg-[#202123] rounded-md">
               <div className="w-7 h-7 bg-black border p-1 border-gray-800 rounded-full flex justify-center items-center">
@@ -55,7 +126,7 @@ const Sidebar = () => {
             </div>
           </Link>
 
-          <UserProfile />
+          <Example />
         </div>
       </div>
     </aside>
