@@ -12,8 +12,9 @@ interface ChatMessageProps {
 }
 const ChatMessage = ({ message }: ChatMessageProps) => {
   const { user } = useUser();
+
   return (
-    <div className="flex gap-3 mt-3 mb-9 items-start">
+    <div className="flex w-full gap-3 mt-3 mb-9 items-start">
       <div
         className={cn(
           `flex items-center text-primary-foreground justify-center size-6 rounded-full`,
@@ -66,3 +67,31 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
 };
 
 export default ChatMessage;
+
+// <Markdown
+//   children={message.content}
+//   remarkPlugins={[remarkGfm, remarkMath]}
+//   className="text-base"
+//   components={{
+//     p({ children }: any) {
+//       return <p className="mb-5 last:mb-0 text-gray-900">{children}</p>;
+//     },
+//     code(props: any) {
+//       const { children, className, node, ...rest } = props;
+//       const match = /language-(\w+)/.exec(className || "");
+
+//       return match ? (
+//         <CodeBlock
+//           {...rest}
+//           language={match[1]}
+//           key={Math.random()}
+//           value={String(children).replace(/\n$/, "")}
+//         />
+//       ) : (
+//         <code {...rest} className={`${className} font-semibold text-sm`}>
+//           `${children}`
+//         </code>
+//       );
+//     },
+//   }}
+// />

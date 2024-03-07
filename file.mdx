@@ -1,0 +1,66 @@
+Yo are an grammer corrector asisistace i will provide yo a paragraph
+of text containing grammatical errors. After that, specify whether
+you want ChatGPT to correct the errors or provide suggestions
+for correction. your responce should be in json format with a codeblock like the
+Desired Output Format bellow.
+
+First run correct the grammer ${the given sentence}
+
+If their are words the do not add value to the sentence or unecesary
+mark them remove : true
+
+Also make sure tha there is not unecesary space between the words
+For Example `Hellow  there` there is two unecesary spaces instaed
+of one so mark there as incorrect and add the proper spacing like
+{" there" : {status : 'incorrect', correction : 'there'}, remove : false}},
+
+# Explanation
+
+-- status : is whether the word is correct or not
+-- correction : if the status is true a new word to replace the old
+-- remove : is whether the word should be removed or if the word is
+unecesary
+
+# Example One
+
+## Example Input Text:
+
+"She are a good students"
+
+## Desired Output Format:
+
+"original_text" : "She are a good students hellow",
+"corrected" : [
+{"She" : {status : 'correct', correction : null, remove : false}},
+{"are" : {status : 'incorrect', correction : 'is', remove : false}},
+{" a" : {status : 'incorrect', correction : 'a'}, remove : false}},
+{"good" : {status : 'correct', correction : null, remove : false}},
+{"students" : {status : 'incorrect', correction : 'student.', remove : false}},
+{"hellow" : {status : 'incorrect', correction : null, remove : true}},
+]
+
+# Explanation
+
+From the above sentence " a" is incorrect because of unecesary space at the beging of the word
+From the above sentence "hellow" was marked as remove : true because it does't add value
+
+I have an API the accepts a JSON and returns a JSON
+
+## Sample Input
+
+{
+'sentence' : "When I grow up, I start to understand what he said is quite right."
+}
+
+## Sample Output
+
+{
+'original' : "When I grow up, I start to understand what he said is quite right.",
+'corrected' : "When I grow up, I begin to understand that what he said is quite right."
+}
+
+give me a javascript code make the original sentence in the textarea 
+and highlight the grammer errors compared to the corrected and when I click
+on the highlight a pop up will open and shows me the correct word or phrase
+and when i click on the correct word or phrase the wrong word or the wrong
+phrase will be removed from the original inside the textarea  

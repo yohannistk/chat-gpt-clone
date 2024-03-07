@@ -76,6 +76,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
           </Button>
         </div>
       </div>
+
       <SyntaxHighlighter
         language={language}
         style={coldarkDark}
