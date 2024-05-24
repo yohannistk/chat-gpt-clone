@@ -4,23 +4,15 @@ import { redirect } from "next/navigation";
 import prisma from "@/lib/db";
 import Chat from "@/components/chat";
 import { v4 as uuidv4 } from "uuid";
+import { getChats } from "@/actions";
 
 export default async function Page() {
   const { userId } = auth();
-
   if (!userId) {
     return redirect("/sign-in");
   }
-  const chats = await prisma.chat.findMany({
-    where: {
-      user_id: userId!,
-    },
-    include: {
-      messages: true,
-    },
-  });
-  console.log(chats);
-
+  // await prisma.chat.deleteMany();
+  const chats = await getChats(userId);
   const id = uuidv4();
 
   return (

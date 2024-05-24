@@ -113,9 +113,7 @@ const ChatBox = (props: { chat: Chat; isActive: boolean }) => {
   return (
     <li className="relative h-auto">
       <div
-        className={cn("group rounded-lg active:opacity-90 hover:bg-[#292b2d]", {
-          "bg-[#202123]": props.isActive,
-        })}
+        className={cn("group rounded-lg active:opacity-90 hover:bg-[#292b2d]")}
       >
         <Link
           href={`/chat/${id}`}
@@ -124,17 +122,14 @@ const ChatBox = (props: { chat: Chat; isActive: boolean }) => {
           <div className="grow overflow-hidden w-full whitespace-nowrap">
             {label}
             <div
-              className="absolute bottom-0 right-0 top-0 bg-gradient-to-l 
-            to-transparent group-hover:w-20 
-            group-hover:bg-[#202123] group-hover:from-60%"
-            ></div>
+              className="absolute bottom-0 rounded-r-lg right-0 top-0 bg-gradient-to-l 
+            to-transparent group-hover:w-10 
+            group-hover:bg-[#202123] group-hover:from-40%"
+            />
           </div>
         </Link>
         <div className="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 invisible group-hover:visible flex">
-          <ChatOption />
-          <button className="flex items-center justify-center transition ">
-            <Archive size={18} />
-          </button>
+          <ChatOption chatId={id} />
         </div>
       </div>
     </li>
