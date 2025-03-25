@@ -79,7 +79,7 @@ export default function UserProfile() {
                       } group flex w-full items-center px-2 py-3 text-sm`}
                     >
                       <LogOut size={18} className="mr-2" />
-                      Log out
+                      Logout
                     </button>
                   )}
                 </Menu.Item>
